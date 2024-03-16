@@ -32,5 +32,18 @@ blogRouter.post("/create", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+// Route to fetch a single blog post
+blogRouter.get("/:id", async (req, res) => {
+  try {
+    const post = await BlogPost.findById(req.params.id);
+    if (!post) {
+      return res.status(404).json({ error: "Blog post not found" });
+    }
+    res.status(200).json(post);
+  } catch (err) {
+    console.error("Error fetching blog post:", err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 export default blogRouter;
