@@ -60,7 +60,7 @@ const RecidPredictor = () => {
   };
 
   return (
-    <div className="max-w-screen relative z-0 bg-gradient-to-l from-stone-200 via-lime-100 to-stone-200  min-h-screen p-4 flex transition-all duration-300">
+    <div className="max-w-screen relative z-0 bg-gradient-to-r from-zinc-200 via-blue-100 to-zinc-200  min-h-screen p-4 flex transition-all duration-300">
       {/* <div className={`flex relative mr-4 ${isMdScreen ? "hidden" : ""}`}> */}
       <div className="flex relative mr-4">{activeMenu && <Sidebar />}</div>
 
@@ -114,8 +114,8 @@ const RecidPredictor = () => {
               <option value="" disabled selected>
                 Select Charge Degree
               </option>
-              <option value="F">F</option>
-              <option value="M">M</option>
+              <option value="F">Felony</option>
+              <option value="M">Misdemeanor</option>
             </select>
 
             <select name="race" required="required" onChange={handleChange}>
