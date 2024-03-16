@@ -29,13 +29,13 @@ export const navlinks = [
     onclick: "",
     admin: false,
   },
-  {
-    name: "RecidPredictor",
-    imgUrl: predictor,
-    link: "/recidPredictor",
-    onclick: "",
-    admin: false,
-  },
+  // {
+  //   name: "Recidivism Predictor",
+  //   imgUrl: predictor,
+  //   link: "/recidPredictor",
+  //   onclick: "",
+  //   admin: false,
+  // },
 ];
 
 export const navlinksadmin = [
