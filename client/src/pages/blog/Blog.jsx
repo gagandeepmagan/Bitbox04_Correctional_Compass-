@@ -38,17 +38,16 @@ function Blog() {
       <div className="flex-1 flex flex-col">
         <Navbar title="Blog" className="md:justify-center" />
         <div className="container flex flex-row mx-auto">
-          
           {posts.map((post) => (
             <div
               key={post._id}
               className="border border-gray-200 rounded p-4 mb-4"
             >
-               <div className="flex flex-col w-[268px] h-[360px] bg-[#F8F8F9] rounded-xl p-4 m-4 mr-0 shadow-lg hover:shadow-[2px_1px_15px_3px_rgba(0,0,0,0.1)] hover:scale-105 transition ease-out duration-700 ">
-              <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-              <p className="text-gray-600 mb-2">Author: {post.author.name}</p>
-              <p className="mb-2">Date:{formatDate(post.createdAt)}</p>
-            </div>
+              <div className="flex flex-col w-[268px] h-[175px] bg-[#F8F8F9] rounded-xl p-4 m-4 mr-0 shadow-lg hover:shadow-[2px_1px_15px_3px_rgba(0,0,0,0.1)] hover:scale-105 transition ease-out duration-700 ">
+                <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
+                <p className="text-gray-600 mb-2">Author: {post.author.name}</p>
+                <p className="mb-2">Date:{formatDate(post.createdAt)}</p>
+              </div>
             </div>
           ))}
         </div>
