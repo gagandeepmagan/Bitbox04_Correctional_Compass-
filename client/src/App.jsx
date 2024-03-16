@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import RecidPredictor from "./pages/recidPredictor/RecidPredictor";
 import { isUserLoggedIn } from "./actions";
+import Blog from "./pages/blog/blog";
 
 const RequireAuth = ({ children }) => {
   const user = window.localStorage.getItem("token");
@@ -67,6 +68,14 @@ function App() {
           element={
             <RequireAuth>
               <Insights />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <RequireAuth>
+              <Blog />
             </RequireAuth>
           }
         />
