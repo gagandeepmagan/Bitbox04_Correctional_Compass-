@@ -1,4 +1,4 @@
-import {course, dashboard, insights, predictor, profile } from '../assets/icons'
+import {course, dashboard, insights, predictor, profile, logout } from '../assets/icons'
 
 export const navlinks = [
   {
