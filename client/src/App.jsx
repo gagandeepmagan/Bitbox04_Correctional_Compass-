@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import PropTypes from "prop-types";
 import Courses from "./pages/Courses";
 import Course from "./pages/Course";
@@ -19,6 +19,13 @@ import Blog from "./pages/blog/blog";
 const RequireAuth = ({ children }) => {
   const user = window.localStorage.getItem("token");
   return user ? children : <Navigate to="/login" />;
+};
+
+const RequireAdminAuth = ({ children }) => {
+  const user = window.localStorage.getItem("token");
+  const admin = window.localStorage.getItem("isAdmin");
+  if(admin === "false") toast.error("You are not authorized to view this page");
+  return user && admin === "true" ? children : <Navigate to="/login" />;
 };
 
 RequireAuth.propTypes = {
@@ -98,17 +105,17 @@ function App() {
         <Route
           path="/all-staff"
           element={
-            <RequireAuth>
+            <RequireAdminAuth>
               <AllStaff />
-            </RequireAuth>
+            </RequireAdminAuth>
           }
         />
         <Route
           path="/all-staff/new"
           element={
-            <RequireAuth>
+            <RequireAdminAuth>
               <CreateStaff />
-            </RequireAuth>
+            </RequireAdminAuth>
           }
         />
         <Route path="/login" element={<Login />} />
