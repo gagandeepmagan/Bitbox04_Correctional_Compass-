@@ -51,7 +51,7 @@ const RecidPredictor = () => {
       });
       const data = await response.json();
 
-      setResult(data[0][1] * 100);
+      setResult(data[0][0] * 100);
     } catch (err) {
       setError(err.message);
     }

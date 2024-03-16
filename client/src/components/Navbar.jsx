@@ -11,9 +11,7 @@ const Navbar = ({ title }) => {
 
   // console.log(auth)
 
-  const user = {
-    name: "Modi"
-  };
+  const user = auth.user
 
   const setActiveMenu = () => {
     dispatch({
