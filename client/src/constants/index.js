@@ -22,13 +22,13 @@ export const navlinks = [
     link: "/insights",
     admin: false,
   },
-  {
-    name: "Profile",
-    imgUrl: profile,
-    link: "/profile",
-    onclick: "",
-    admin: false,
-  },
+  // {
+  //   name: "Profile",
+  //   imgUrl: profile,
+  //   link: "/profile",
+  //   onclick: "",
+  //   admin: false,
+  // },
   // {
   //   name: "Recidivism Predictor",
   //   imgUrl: predictor,
