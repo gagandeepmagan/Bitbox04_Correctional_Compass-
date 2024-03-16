@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { navlinks, navlinksadmin } from "../constants";
 
 import { signout } from "../actions/auth.actions";
+import { logout } from "../assets/icons";
 
 const Sidebar = () => {
   const admin = window.localStorage.getItem("isAdmin");
@@ -37,21 +38,22 @@ const Sidebar = () => {
 
         {admin === "true"
           ? navlinksadmin.map((link, index) => (
-              <NavLink key={index} to={link.link}>
-                <div
-                  key={link.name}
-                  className="flex justify-start items-center gap-4 my-8 mx-2"
-                >
-                  <span className="opacity-60 font-semibold">{link.name}</span>
-                </div>
-              </NavLink>
-            ))
+            <NavLink key={index} to={link.link}>
+              <div
+                key={link.name}
+                className="flex justify-start items-center gap-4 my-8 mx-2"
+              >
+                <span className="opacity-60 font-semibold">{link.name}</span>
+              </div>
+            </NavLink>
+          ))
           : ""}
 
         <div
           className="flex justify-start items-center gap-4 my-8 mx-2 cursor-pointer"
           onClick={handleLogout}
         >
+          <img src={logout} alt="" width={20} />
           <span className="opacity-60 font-semibold">Logout</span>
         </div>
       </div>
