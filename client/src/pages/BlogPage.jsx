@@ -36,8 +36,7 @@ const BlogPage = () => {
 
         <div className="m-3">
           <h3 className="text-6xl font-bold mx-auto">{post?.title}</h3>
-          <h6>{post?.author?.name}</h6>
-
+          <h6 className="font-bold my-4">{post?.author?.name}</h6>
           <p>{post?.content}</p>
         </div>
         
