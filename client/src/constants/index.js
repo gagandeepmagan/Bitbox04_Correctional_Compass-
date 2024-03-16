@@ -6,6 +6,7 @@ import {
   profile,
   logout,
   people,
+  blog,
 } from "../assets/icons";
 
 export const navlinks = [
@@ -32,7 +33,7 @@ export const navlinks = [
   },
   {
     name: "Blog",
-    imgUrl: insights,
+    imgUrl: blog,
     onclick: "",
     link: "/blog",
     admin: false,

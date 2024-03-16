@@ -20,7 +20,7 @@ function Blog() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("/api/blog/");
+        const response = await axios.get("/blog/");
         setPosts(response.data);
         console.log(response.data);
       } catch (error) {
