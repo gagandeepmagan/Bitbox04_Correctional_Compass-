@@ -65,7 +65,7 @@ const RecidPredictor = () => {
       <div className="flex relative mr-4">{activeMenu && <Sidebar />}</div>
 
       <div className="flex-1 flex flex-col">
-        <Navbar title="RecidPredictor" className="md:justify-center" />
+        <Navbar title="Recidivism Predictor" className="md:justify-center" />
         <div name="login" className="login">
           <h1>Recidivism Predictor</h1>
 
