@@ -23,7 +23,7 @@ const Navbar = ({ title }) => {
 
   return (
     <nav className="flex justify-between items-center sticky z-10 bg-[#F8F8F9] px-8 py-4 rounded-2xl">
-      {/* {auth.authenticate ? ( */}
+      {auth.authenticate ? (
         <>
           <button onClick={() => setActiveMenu((prev) => !prev)}>Menu</button>
           <div className="font-bold text-2xl tracking-wide mr-4">
@@ -57,7 +57,7 @@ const Navbar = ({ title }) => {
             </div>
           </div>
         </>
-      {/* ) : (
+      ) : (
         <>
           <div className="font-bold text-3xl m-1 tracking-wide">
             <h2>Correctional Compass</h2>
@@ -71,7 +71,7 @@ const Navbar = ({ title }) => {
             </Link>
           </div>
         </>
-      )} */}
+      )}
     </nav>
   );
 };

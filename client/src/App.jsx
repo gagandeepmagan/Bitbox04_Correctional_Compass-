@@ -16,8 +16,8 @@ import RecidPredictor from "./pages/recidPredictor/RecidPredictor";
 import { isUserLoggedIn } from "./actions";
 
 const RequireAuth = ({ children }) => {
-  const user = true;
-  return children;
+  const user = window.localStorage.getItem("token");
+  return user ? children : <Navigate to="/login" />;
 };
 
 RequireAuth.propTypes = {
@@ -78,14 +78,14 @@ function App() {
             </RequireAuth>
           }
         />
-        {/* <Route
+        <Route
           path="/recidPredictor"
           element={
             <RequireAuth>
               <RecidPredictor />
             </RequireAuth>
           }
-        /> */}
+        />
         <Route
           path="/all-staff"
           element={
