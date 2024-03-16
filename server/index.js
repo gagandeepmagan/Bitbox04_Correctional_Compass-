@@ -4,7 +4,7 @@ import cors from "cors";
 
 import connectDB from "./mongodb/connect.js";
 import userRouter from "./routes/userRoutes.js";
-
+import blogRouter from "./routes/blogRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/api/user", userRouter);
-
+app.use("/api/blog", blogRouter);
 
 const startServer = async () => {
   try {
