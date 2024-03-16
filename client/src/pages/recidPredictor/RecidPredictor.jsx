@@ -42,7 +42,7 @@ const RecidPredictor = () => {
     e.preventDefault();
     try {
       console.log(formData);
-      const response = await fetch("https://recidapi.onrender.com/predictApi", {
+      const response = await fetch("http://localhost:5000/predictApi", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,13 +52,15 @@ const RecidPredictor = () => {
       const data = await response.json();
 
       setResult(data[0][0] * 100);
+      console.log(data[0][0]);
+      console.log(result);
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="max-w-screen relative z-0 bg-gradient-to-r from-zinc-200 via-blue-100 to-zinc-200  min-h-screen p-4 flex transition-all duration-300">
+    <div className="max-w-screen relative z-0 bg-gradient-to-l from-stone-200 via-lime-100 to-stone-200  min-h-screen p-4 flex transition-all duration-300">
       {/* <div className={`flex relative mr-4 ${isMdScreen ? "hidden" : ""}`}> */}
       <div className="flex relative mr-4">{activeMenu && <Sidebar />}</div>
 
