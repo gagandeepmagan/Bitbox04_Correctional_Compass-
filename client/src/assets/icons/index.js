@@ -4,6 +4,7 @@ import dashboard from './apps-outline.svg'
 import predictor from './cog-outline.svg'
 import profile from './person-circle-outline.svg'
 import logout from './log-out-outline.svg'
+import people from './people-outline.svg'
 
 export{
     course,
@@ -11,5 +12,6 @@ export{
     dashboard,
     predictor,
     profile,
-    logout
+    logout,
+    people
 }

@@ -1,4 +1,4 @@
-import {course, dashboard, insights, predictor, profile, logout } from '../assets/icons'
+import {course, dashboard, insights, predictor, profile, logout, people } from '../assets/icons'
 
 export const navlinks = [
   {
@@ -22,26 +22,26 @@ export const navlinks = [
     link: "/insights",
     admin: false,
   },
-  // {
-  //   name: "Profile",
-  //   imgUrl: profile,
-  //   link: "/profile",
-  //   onclick: "",
-  //   admin: false,
-  // },
-  // {
-  //   name: "Recidivism Predictor",
-  //   imgUrl: predictor,
-  //   link: "/recidPredictor",
-  //   onclick: "",
-  //   admin: false,
-  // },
+  {
+    name: "Profile",
+    imgUrl: profile,
+    link: "/profile",
+    onclick: "",
+    admin: false,
+  },
+  {
+    name: "Recidivism Predictor",
+    imgUrl: predictor,
+    link: "/recidPredictor",
+    onclick: "",
+    admin: false,
+  },
 ];
 
 export const navlinksadmin = [
   {
     name: "All Staff",
-    imgUrl: dashboard,
+    imgUrl: people,
     link: "/all-staff",
     onclick: "",
     admin: true,

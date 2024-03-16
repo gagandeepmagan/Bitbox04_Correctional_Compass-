@@ -1,13 +1,13 @@
 // import React from 'react'
 import // profile1,
-// crown,
-// flag,
-// medal,
-// trophy,
-// support,
-// member,
-// camera,
-"./imports";
+  // crown,
+  // flag,
+  // medal,
+  // trophy,
+  // support,
+  // member,
+  // camera,
+  "./imports";
 import toast from "react-hot-toast";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
@@ -57,7 +57,7 @@ const CreateStaff = () => {
     e.preventDefault()
     createStaff().then((data) =>
       data?.status === 400
-        ? toast.error(data.data.message)
+        ? toast.error(data.data.message || data.data.error)
         : toast.success(data.message)
     );
   }

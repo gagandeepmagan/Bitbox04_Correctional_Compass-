@@ -12,13 +12,16 @@ import axios from "../../helpers/axios";
 import toast from "react-hot-toast";
 
 const TableList = () => {
-  
+
   const [users, setUsers] = useState();
   const [error, setError] = useState();
+  const [deleting, setDeleting] = useState(false);
+
+  const user_id = window.localStorage.getItem("_id");
 
   const deleteStaff = async (id) => {
     const res = await axios
-      .delete(`/user/signup/${id}`, {
+      .delete(`/user/staff/${id}`, {
         method: "DELETE",
         query: true
       })
@@ -32,12 +35,21 @@ const TableList = () => {
   };
 
   const handleDelete = (id) => {
-    deleteStaff(id).then((data) =>console.log(data)).catch(err => console.log(err));
+    if (window.confirm("Are you sure you want to delete this staff?")) {
+      console.log(id);
+      console.log(window.localStorage.getItem("_id"));
+      if (id === user_id) {
+        toast.error("You can't delete yourself");
+        return;
+      }
+      deleteStaff(id).then((data) => data.status === 400 ? toast.error(data.data.message) : toast.success(data.message)).catch(err => console.log(err));
+    }
+    setDeleting(true);
   }
 
   useEffect(() => {
     getUserList().then((data) => setUsers(data));
-  }, []);
+  }, [deleting]);
 
 
   return (
@@ -52,13 +64,13 @@ const TableList = () => {
             <TableCell className="tableCell">Date of Joining</TableCell>
             <TableCell className="tableCell">Address</TableCell>
             <TableCell className="tableCell">User Type</TableCell>
-            {/* <TableCell className="tableCell">Action</TableCell> */}
+            <TableCell className="tableCell">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {users?.map((row, index) => (
             <TableRow key={index}>
-              <TableCell className="tableCell">{index+1}</TableCell>
+              <TableCell className="tableCell">{index + 1}</TableCell>
               <TableCell className="tableCell">{row._id}</TableCell>
               <TableCell className="tableCell">
                 <div className="cellWrapper">
@@ -69,9 +81,15 @@ const TableList = () => {
               <TableCell className="tableCell">{row.created_at}</TableCell>
               <TableCell className="tableCell">{row?.city + ", " + row?.state}</TableCell>
               <TableCell className="tableCell">{row.isAdmin ? "Admin" : "Staff"}</TableCell>
-              {/* <TableCell className="tableCell">
-                <button className="p-2 bg-red-500 font-bold px-4 rounded-lg" onClick={() => handleDelete(row?._id)}>Delete</button>
-              </TableCell> */}
+              <TableCell className="tableCell">
+                <button
+                  className={`p-2 ${row._id === user_id ? "bg-red-300 cursor-not-allowed" : "bg-red-500"} font-bold px-4 rounded-lg`}
+                  onClick={() => handleDelete(row?._id)}
+                  disabled={false}
+                >
+                  Delete
+                </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

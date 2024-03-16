@@ -42,7 +42,8 @@ const Sidebar = () => {
               <div
                 key={link.name}
                 className="flex justify-start items-center gap-4 my-8 mx-2"
-              >
+              > 
+                <img src={link.imgUrl} alt="" width={20} />
                 <span className="opacity-60 font-semibold">{link.name}</span>
               </div>
             </NavLink>

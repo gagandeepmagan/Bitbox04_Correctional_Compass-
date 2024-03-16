@@ -9,5 +9,5 @@ export {
     training_state,
     illness_orissa,
     illness_state,
-    recidivism
+    recidivism,
 }
