@@ -35,7 +35,7 @@ blogRouter.post("/create", async (req, res) => {
 // Route to fetch a single blog post
 blogRouter.get("/:id", async (req, res) => {
   try {
-    const post = await BlogPost.findById(req.params.id);
+    const post = await BlogPost.findById(req.params.id).populate("author");
     if (!post) {
       return res.status(404).json({ error: "Blog post not found" });
     }
