@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import axios from "../../helpers/axios";
+import { Link } from "react-router-dom";
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -70,10 +71,11 @@ function Blog() {
         <div>
           <div className="container flex flex-row mx-auto">
             {posts.map((post) => (
+              <Link to={`/blog/${post._id}`}>
               <div
                 key={post._id}
                 className="border border-gray-200 rounded p-4 mb-4"
-              >
+                >
                 <div className="flex flex-col bg-gray-100 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300">
                   <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
                   <p className="text-gray-600 mb-2">
@@ -82,6 +84,7 @@ function Blog() {
                   <p className="mb-2">Date: {formatDate(post.createdAt)}</p>
                 </div>
               </div>
+                </Link>
             ))}
           </div>
           <div className="text-center mt-4">
